@@ -39,7 +39,7 @@ fetchData () {
 fetchDataInPage () {
   let id = this.$route.params.id
   // console.log('id', id)
-  axios.post(`http://localhost:3000/api`, {
+  axios.get(`http://localhost:3000/api`, {
     id
   })
   .then(res => {
@@ -77,7 +77,7 @@ fetchCategory () {
     })
 }
 ```
-  - Khi tìm kiếm theo subcategory: Vì cùng nằm trên 1 component với category nên không thể gọi hàm fetchCategory() để lấy dữ liệu cùng với fetchCategory() khi component được created(Nếu call đồng thời 2 function trong khi truy vấn chỉ tìm dữ liệu category thì hàm `this.fetchCategory()` sẽ trả về `undefied`). Do đó dùng phương thức `watch` để kiểm tra sự thay đổi trên route để gọi function:
+  - Khi tìm kiếm theo subcategory: Vì cùng nằm trên 1 component với category nên không thể gọi hàm fetchSubcategory() để lấy dữ liệu cùng với fetchCategory() khi component được created(Nếu call đồng thời 2 function trong khi truy vấn chỉ tìm dữ liệu category thì hàm `this.fetchSubcategory()` sẽ trả về `undefied`). Do đó dùng phương thức `watch` để kiểm tra sự thay đổi trên route để gọi function:
 ```js
 watch: {
   '$route.params.subcategory' (to, from) {
