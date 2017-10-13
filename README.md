@@ -1,4 +1,5 @@
-## bookstore-Vueclient: Xây dựng phần Client Vue theo mẫu website: http://www.allitebooks.com/
+## Branch `master` - bookstore-Vueclient: Xây dựng phần Client Vue theo mẫu website: http://www.allitebooks.com/<br>
+## Branch `bookStoreCart` sẽ demo trang giỏ hàng
 > Document này chỉ giải thích phần xử lý client Vuejs - nhận data từ Database qua API được Server Express cấp trong folder api (trong folder Nunjucks)
 
 1. Cấu trúc Router chính:
