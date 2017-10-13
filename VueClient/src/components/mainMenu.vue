@@ -4,9 +4,9 @@
         <div class="left">
             <ul class="paddingless marginless nav">
                 <li class="nav-item">
-                  <button type="button" class="dropbtn">
-                    <a href="#">All IT eBooks</a>
-                  </button>
+                <a href="#">  <button type="button" class="dropbtn">
+                    All IT eBooks
+                  </button></a>
                 </li>
                 <li class="nav-item">
                   <div class="dropdown">
@@ -38,9 +38,12 @@
             </form>
             </div>
          </div>
-            <div class="cart">
+            <div class="cart" >
+              <router-link to="/cart" id="cart">
                <i class="fa fa-shopping-cart"></i>
-             <span >Cart (0)</span>
+             <span v-if="update">Cart ({{update}})</span>
+             <span v-else>Cart (0)</span>
+             </router-link>
             </div>         
       </div>
     </div>
@@ -48,7 +51,7 @@
 
 <script>
 export default {
-  props: ['category'],
+  props: ['category', 'update'],
   data () {
     return {
       searchvalue: ''
@@ -68,8 +71,23 @@ export default {
 }
 
 .cart {
-      display: block;
-    color: white;
-    margin: 1rem;
+  display: block;
+  color: white;
+  margin: 1.2rem;
+  width: 10%;
+}
+.cart  > #cart{
+  color:white
+}
+.cart a.router-link-active{
+  display:none
+}
+@media all and (max-width: 1024px) {
+  .cart > a{
+    font-size: 13px;
+  }
+  .right {
+    margin-top: 2%
+  }
 }
 </style>
