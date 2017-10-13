@@ -60,6 +60,7 @@ body {
     width: 53.8vw;
     text-align: right
 }
+
 :root {
     --dark-blue: #2a3744;
     --light-blue: #3d5064;

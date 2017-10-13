@@ -31,11 +31,17 @@
         </div>
          <div class="right">
             <!-- <a href="#">Search</a> -->
+            <div>
             <form @submit.prevent="searchBook" method="get">
               <input type="text" name="search" v-model="searchvalue">
               <input type="submit" value="Search">
             </form>
+            </div>
          </div>
+            <div class="cart">
+               <i class="fa fa-shopping-cart"></i>
+             <span >Cart (0)</span>
+            </div>         
       </div>
     </div>
 </template>
@@ -59,5 +65,11 @@ export default {
 <style lang="css">
 .right form {
   margin-top: 3%;
+}
+
+.cart {
+      display: block;
+    color: white;
+    margin: 1rem;
 }
 </style>

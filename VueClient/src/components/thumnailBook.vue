@@ -7,7 +7,8 @@
         </div>
         <div class="body">
             <header class="header">
-                <h3 class="title marginless"><router-link :to="{path: `${root}/books/${item.title}`}">{{ item.title}}</router-link></h3>
+                <h3 class="title marginless"><router-link :to="{path: `${root}/books/${item.title}`}">{{ item.title}}</router-link>    </h3>
+               
                 <h5 class="author marginless">By: 
                     <a href=""  v-for="items in item.author">
                         <span>
@@ -15,9 +16,11 @@
                             {{ items}}
                             </router-link>
                         </span>
+                      
                     </a>
                 </h5>
-                <header class="summary" v-html="$options.filters.truncate(item.description, 500)"></header>
+                <header class="summary" v-html="$options.filters.truncate(item.description, 500)">   </header>    <span  id="price">Price: 200.000 VND</span>
+                  <div style="margin-top: 10px;"> <addCartButton :item="item"></addCartButton>  </div> 
             </header>
         </div>
       </article>
@@ -39,6 +42,7 @@
                     </a>
                 </h5>
                 <header class="summary" v-html="$options.filters.truncate(item.description, 500)"></header>
+         
             </header>
         </div>
       </article>
@@ -46,10 +50,15 @@
 </template>
 
 <script>
+import addCartButton from './addCartButton.vue'
 export default {
+  components: {
+    'addCartButton': addCartButton
+  },
   data () {
     return {
-      root: ''
+      root: '',
+      addCart: ''
     }
   },
   props: ['book', 'subBook'],
@@ -133,5 +142,9 @@ section.right {
 }
 .author span {
     margin-left: 10px;
+}
+#price {
+   font-weight:bold;
+   color:red
 }
 </style>
